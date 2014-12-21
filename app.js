@@ -22,14 +22,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // App Routes
-// --------------------------------------------------------------
+// ---------------------------------------------------------------
 
 
-    app.use( '/',                require('./routes/index')     );
-    app.use( '/ip',              require('./routes/ip')        );
+    app.use( '/',              require('./routes/index')        );
+    app.use( '/ip',            require('./routes/ip')           );
+    app.use( '/user-agent',    require('./routes/user-agent')   );
 
 
-// --------------------------------------------------------------
+// ---------------------------------------------------------------
 
 
 
