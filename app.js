@@ -1,9 +1,9 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser   = require('body-parser');
 
 var app = express();
 
@@ -25,12 +25,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ---------------------------------------------------------------
 
 
-    app.use( '/',              require('./routes/index')        );
-    app.use( '/ip',            require('./routes/ip')           );
-    app.use( '/user-agent',    require('./routes/user-agent')   );
+    app.use( '/',              route('index')        );
+    app.use( '/ip',            route('ip')           );
+    app.use( '/user-agent',    route('user-agent')   );
 
+
+
+
+// Custom Routing methods
+// ---------------------------------------------------------------
+
+
+function route(slug) {
+    return require('./routes/' + slug);         // E.g.: route('ip');
+}
+
+function useRoute(slug) {
+    app.use('/' + slug, loadRoute(slug));       // E.g.: useRoute('ip');
+}
 
 // ---------------------------------------------------------------
+
 
 
 
