@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-  res.send('respond with ip');
+  res.json({
+  	origin: req.ip
+  });
 });
 
 module.exports = router;
