@@ -4,7 +4,8 @@ var router  = express.Router();
 /* GET user-agent */
 router.get('/', function(req, res) {
   res.json({
-  	'user-agent': 'return the user-agent here'
+  	'user-agent': navigator.userAgent
+    //'return the user-agent here'
   });
 });
 
