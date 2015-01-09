@@ -28,9 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
     app.use( '/',              route('index')        );
     app.use( '/ip',            route('ip')           );
     app.use( '/user-agent',    route('user-agent')   );
-
-
-
+    app.use('/headers',        route('headers')      );
+    app.use('/get',            route('get')          );
+    app.use('/status',         route('status')       )
 
 // Custom Routing methods
 // ---------------------------------------------------------------
