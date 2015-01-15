@@ -4,12 +4,26 @@ var router  = express.Router();
 /* GET custom status code */
 router.get('/:code/', function(req, res) {
   
-  res.json({
-  	//'statusCode':res.statusCode
-    'status': req.params.code
+  var status_code = req.params.code;
+  	function isInt(value) 
+  	{
+  		return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value))
+	}
+  if (!isInt(status_code) || status_code<=100 || status_code>=600)
+  	{	
+
+  		res.send('404: PAGE NOT FOUND. \n This could be due to Incorrect Status Code being Passed.', 404);
+  		console.log('Were facing an error. Must not Fap!');
+	}
+   else
+	{
+    		res.json({
+  			//'statusCode':res.statusCode
+    		'status': req.params.code
 	
 	
-  });
+ 	 		});
+	}
 });
 
 module.exports = router;
