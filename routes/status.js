@@ -1,6 +1,6 @@
 var express = require('express');
 var router  = express.Router();
-
+var http = require('http');
 /* GET custom status code */
 router.get('/:code/', function(req, res) {
   
@@ -11,8 +11,10 @@ router.get('/:code/', function(req, res) {
 	}
   if (!isInt(status_code) || status_code<=100 || status_code>=600)
   	{	
-
-  		res.send('404: PAGE NOT FOUND. \n This could be due to Incorrect Status Code being Passed.', 404);
+  		
+  		
+  		//res.status(400).send('Bad Request');
+  		res.send('404: PAGE NOT FOUND.', 404);
   		console.log('Were facing an error. Must not Fap!');
 	}
    else
@@ -20,7 +22,7 @@ router.get('/:code/', function(req, res) {
     		res.json({
   			//'statusCode':res.statusCode
     		'status': req.params.code
-	
+			
 	
  	 		});
 	}
