@@ -4,8 +4,7 @@ var router  = express.Router();
 /* GET user-agent */
 router.get('/', function(req, res) {
   res.json({
-    'get': ''
-
+    'get': 'GET DATA IS DISPLAYED BELOW:\n'
   });
 });
 
