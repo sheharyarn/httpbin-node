@@ -3,8 +3,8 @@ var router = express.Router();
 
 /* GET client ip */
 router.get('/', function(req, res) {
-  res.json({
-  	'origin': req.ip
+    res.json({
+        'origin': req.ip
   });
 });
 
