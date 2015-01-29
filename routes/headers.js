@@ -1,10 +1,10 @@
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
 
-/* GET client ip */
+/* GET headers */
 router.get('/', function(req, res) {
     res.json({
-        'origin': req.ip
+        'headers': req.headers
   });
 });
 

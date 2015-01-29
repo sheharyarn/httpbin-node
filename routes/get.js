@@ -1,11 +1,11 @@
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
 
-/* GET client ip */
+/* GET user-agent */
 router.get('/', function(req, res) {
     res.json({
-        'origin': req.ip
-  });
+        'get': 'GET DATA IS DISPLAYED BELOW:\n'
+        });
 });
 
 module.exports = router;
